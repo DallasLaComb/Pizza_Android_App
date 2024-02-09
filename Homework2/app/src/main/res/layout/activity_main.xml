@@ -22,10 +22,55 @@
         android:id="@+id/tv_choose_your_pizza_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="25dp"
         android:text="@string/choose_your_pizza_type"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_pizza_order" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_choose_your_pizza_type">
+
+        <RadioButton
+            android:id="@+id/rb_pepperoni"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pepperoni" />
+
+        <RadioButton
+            android:id="@+id/rb_bbq_chicken"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BBQ Chicken" />
+
+        <RadioButton
+            android:id="@+id/rb_margherita"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Margherita (premium)" />
+
+        <RadioButton
+            android:id="@+id/rb_hawaiian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hawaiian (premium)" />
+    </RadioGroup>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="144dp"
+        android:layout_height="144dp"
+        android:layout_marginEnd="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/radioGroup"
+        app:srcCompat="@drawable/pizza_crust"
+        tools:srcCompat="@drawable/pizza_crust" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
