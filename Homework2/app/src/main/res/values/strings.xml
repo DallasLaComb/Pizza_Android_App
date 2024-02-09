@@ -2,7 +2,7 @@
     <string name="app_name">Homework#2</string>
     <string name="pizza_order">Pizza Order</string>
     <string name="choose_your_pizza_type">Choose Your Pizza Type:</string>
-    <string name="pepperoni">pepperoni</string>
+    <string name="pepperoni">Pepperoni</string>
     <string name="bbq_chicken">BBQ Chicken</string>
     <string name="margherita_premium">Margherita (premium)</string>
     <string name="hawaiian_premium">Hawaiian (premium)</string>
