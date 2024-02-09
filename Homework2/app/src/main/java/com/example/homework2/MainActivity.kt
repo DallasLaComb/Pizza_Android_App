@@ -6,8 +6,10 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ImageView
+import android.widget.SeekBar
 import android.widget.Spinner
 import android.widget.Switch
+import android.widget.TextView
 import android.widget.Toast
 
 class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
@@ -21,6 +23,22 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         val pizzaSizeSpinner = findViewById<Spinner>(R.id.sp_choose_pizza_size)
         pizzaSizeSpinner.adapter = pizzaSizeAdapter
         pizzaSizeSpinner.onItemSelectedListener = this
+
+        val seekBarSpicyLevelLabel = findViewById<TextView>(R.id.tv_spiciness_level)
+        findViewById<SeekBar>(R.id.sb_spiciness_level).setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean){
+                seekBarSpicyLevelLabel.text = "Spiciness Level: $progress"
+            }
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {
+//              Don't need this function
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {
+//              Don't need this function
+
+            }
+        })
+
 
         }
     override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -46,8 +64,14 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         val switchText: String
         if (switchSpicy.isChecked){
             switchText = "Yes, $1.00"
+            findViewById<SeekBar>(R.id.sb_spiciness_level).visibility = View.VISIBLE;
+            findViewById<TextView>(R.id.tv_spiciness_level).visibility = View.VISIBLE;
         } else{
             switchText = "No, $0.00"
+            findViewById<SeekBar>(R.id.sb_spiciness_level).visibility = View.INVISIBLE;
+            findViewById<TextView>(R.id.tv_spiciness_level).visibility = View.INVISIBLE;
+
+
         }
         switchSpicy.text=switchText
     }
