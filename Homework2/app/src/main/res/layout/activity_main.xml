@@ -32,9 +32,8 @@
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="175dp"
+        android:layout_marginStart="24dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_choose_your_pizza_type">
 
@@ -43,34 +42,42 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="setPizzaImageView"
-            android:text="@string/pepperoni" />
+            android:text="@string/pepperoni"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textSize="12sp" />
 
         <RadioButton
             android:id="@+id/rb_bbq_chicken"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="setPizzaImageView"
-            android:text="@string/bbq_chicken" />
+            android:text="@string/bbq_chicken"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textSize="12sp" />
 
         <RadioButton
             android:id="@+id/rb_margherita"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="setPizzaImageView"
-            android:text="@string/margherita_premium" />
+            android:text="@string/margherita_premium"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textSize="12sp" />
 
         <RadioButton
             android:id="@+id/rb_hawaiian"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="setPizzaImageView"
-            android:text="@string/hawaiian_premium" />
+            android:text="@string/hawaiian_premium"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textSize="12sp" />
     </RadioGroup>
 
     <ImageView
         android:id="@+id/iv_default_pizza"
         android:layout_width="160dp"
-        android:layout_height="200dp"
+        android:layout_height="175dp"
         android:layout_marginEnd="25dp"
         android:contentDescription="@string/default_pizza_image_view"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,7 +90,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="10dp"
         android:text="@string/choose_pizza_size"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textStyle="bold"
@@ -95,7 +101,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="10dp"
         android:layout_marginEnd="25dp"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -108,7 +113,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="10dp"
         android:text="@string/extra_toppings"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textStyle="bold"
@@ -119,7 +123,6 @@
         android:id="@+id/checkBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:includeFontPadding="false"
         android:text="Tomatoes ($1)"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
@@ -151,7 +154,6 @@
         android:id="@+id/checkBox4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:text="Onions ($1.25)"
         app:layout_constraintEnd_toStartOf="@+id/checkBox5"
         app:layout_constraintStart_toStartOf="parent"
