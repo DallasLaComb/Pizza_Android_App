@@ -42,24 +42,28 @@
             android:id="@+id/rb_pepperoni"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="setPizzaImageView"
             android:text="@string/pepperoni" />
 
         <RadioButton
             android:id="@+id/rb_bbq_chicken"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="setPizzaImageView"
             android:text="@string/bbq_chicken" />
 
         <RadioButton
             android:id="@+id/rb_margherita"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="setPizzaImageView"
             android:text="@string/margherita_premium" />
 
         <RadioButton
             android:id="@+id/rb_hawaiian"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="setPizzaImageView"
             android:text="@string/hawaiian_premium" />
     </RadioGroup>
 
