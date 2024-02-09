@@ -235,7 +235,7 @@
         app:layout_constraintTop_toBottomOf="@+id/sb_spiciness_level" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/bu_decrement_quantity"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#F44336"
@@ -250,12 +250,12 @@
         android:layout_height="wrap_content"
         android:text="0"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-        app:layout_constraintBottom_toBottomOf="@+id/button"
-        app:layout_constraintStart_toEndOf="@+id/button"
-        app:layout_constraintTop_toTopOf="@+id/button" />
+        app:layout_constraintBottom_toBottomOf="@+id/bu_decrement_quantity"
+        app:layout_constraintStart_toEndOf="@+id/bu_decrement_quantity"
+        app:layout_constraintTop_toTopOf="@+id/bu_decrement_quantity" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/bu_increment_quantity"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#4CAF50"
