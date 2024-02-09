@@ -11,7 +11,6 @@
         android:id="@+id/tv_pizza_order"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:text="@string/pizza_order"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,46 +30,47 @@
 
     <RadioGroup
         android:id="@+id/radioGroup"
-        android:layout_width="200dp"
-        android:layout_height="175dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_choose_your_pizza_type">
 
         <RadioButton
             android:id="@+id/rb_pepperoni"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
             android:onClick="setPizzaImageView"
             android:text="@string/pepperoni"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textSize="12sp" />
 
         <RadioButton
             android:id="@+id/rb_bbq_chicken"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
             android:onClick="setPizzaImageView"
             android:text="@string/bbq_chicken"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textSize="12sp" />
 
         <RadioButton
             android:id="@+id/rb_margherita"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
             android:onClick="setPizzaImageView"
             android:text="@string/margherita_premium"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textSize="12sp" />
 
         <RadioButton
             android:id="@+id/rb_hawaiian"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:minHeight="48dp"
             android:onClick="setPizzaImageView"
             android:text="@string/hawaiian_premium"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textSize="12sp" />
     </RadioGroup>
 
@@ -196,6 +196,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:minHeight="48dp"
+        android:onClick="spicySwitchClick"
         android:text="No, $0.00"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintBottom_toBottomOf="@+id/tv_extra_spicy"

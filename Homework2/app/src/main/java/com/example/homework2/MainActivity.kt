@@ -7,6 +7,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.Spinner
+import android.widget.Switch
 import android.widget.Toast
 
 class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
@@ -39,5 +40,15 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             else -> R.drawable.pizza_crust
         }
         findViewById<ImageView>(R.id.iv_default_pizza).setImageResource(imageIdOfSelectedPizza)
+    }
+    fun spicySwitchClick(view:View){
+        val switchSpicy = findViewById<Switch>(R.id.sw_extra_spicy)
+        val switchText: String
+        if (switchSpicy.isChecked){
+            switchText = "Yes, $1.00"
+        } else{
+            switchText = "No, $0.00"
+        }
+        switchSpicy.text=switchText
     }
 }
