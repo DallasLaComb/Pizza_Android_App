@@ -8,8 +8,9 @@
     <string name="hawaiian_premium">Hawaiian (premium)</string>
     <string name="default_pizza_image_view">default_pizza_image_view</string>
     <string name="choose_pizza_size">Choose Pizza Size:</string>
+    <string name="extra_toppings">Extra Toppings:</string>
 
-<string-array name="planets_array">
+    <string-array name="planets_array">
     <item>Mercury</item>
     <item>Venus</item>
     <item>Earth</item>
