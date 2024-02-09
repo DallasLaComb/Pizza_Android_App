@@ -42,32 +42,33 @@
             android:id="@+id/rb_pepperoni"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pepperoni" />
+            android:text="@string/pepperoni" />
 
         <RadioButton
             android:id="@+id/rb_bbq_chicken"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="BBQ Chicken" />
+            android:text="@string/bbq_chicken" />
 
         <RadioButton
             android:id="@+id/rb_margherita"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Margherita (premium)" />
+            android:text="@string/margherita_premium" />
 
         <RadioButton
             android:id="@+id/rb_hawaiian"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hawaiian (premium)" />
+            android:text="@string/hawaiian_premium" />
     </RadioGroup>
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/iv_default_pizza"
         android:layout_width="144dp"
         android:layout_height="144dp"
         android:layout_marginEnd="25dp"
+        android:contentDescription="@string/default_pizza_image_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/radioGroup"
         app:srcCompat="@drawable/pizza_crust"
