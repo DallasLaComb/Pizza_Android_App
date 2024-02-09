@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Homework#2</string>
+    <string name="pizza_order">Pizza Order</string>
+    <string name="choose_your_pizza_type">Choose Your Pizza Type:</string>
 </resources>
