@@ -14,10 +14,11 @@ import android.widget.TextView
 import android.widget.Toast
 
 class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
+    val tv_total_price = findViewById<TextView>(R.id.tv_total_price)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
 
 
         val pizzaSizeList = listOf("Medium ($9.99)", "Large($13.99)", "Extra Large ($15.99)", "Party Size ($25.99)")
@@ -62,7 +63,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         buDecrementButton.setOnClickListener {
             // Parse the current quantity to an integer, decrement it, and ensure it does not go below a certain value (e.g., 0)
             var quantity = tvQuantity.text.toString().toInt()
-            if (quantity > 0) { // Prevents quantity from going below 0
+            if (quantity > 1) { // Prevents quantity from going below 0
                 quantity--
                 tvQuantity.text = quantity.toString()
             }
@@ -72,8 +73,17 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     override fun onNothingSelected(parent: AdapterView<*>?) {
 //        Toast.makeText(this, "Nothing is selected!", Toast.LENGTH_SHORT).show()
     }
-    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-//
+    override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+        val item = parent.getItemAtPosition(position).toString()
+
+        val pricePattern = Regex("\\$(\\d+\\.\\d{2})")
+        val matchResult = pricePattern.find(item)
+        val priceString = matchResult?.value?.removePrefix("$") // Remove the dollar sign to parse it as a Double
+
+        val price = priceString?.toDoubleOrNull() ?: 0.0
+
+        // Set the extracted price to your TextView
+        tv_total_price.text = "Total Price: $%.2f".format(totalPrice)
     }
 
     fun setPizzaImageView(view:View){
@@ -86,6 +96,17 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             else -> R.drawable.pizza_crust
         }
         findViewById<ImageView>(R.id.iv_default_pizza).setImageResource(imageIdOfSelectedPizza)
+    }
+    fun deliverySwitchClick(view:View){
+        val switchDelivery = findViewById<Switch>(R.id.sw_delivery)
+        val switchText: String
+        if (switchDelivery.isChecked){
+            switchText = "Yes, $2.00"
+        }
+        else{
+            switchText = "No, $0.00"
+        }
+        switchDelivery.text=switchText
     }
     fun spicySwitchClick(view:View){
         val switchSpicy = findViewById<Switch>(R.id.sw_extra_spicy)
