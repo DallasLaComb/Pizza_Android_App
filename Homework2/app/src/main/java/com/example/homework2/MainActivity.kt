@@ -14,7 +14,7 @@ import android.widget.TextView
 import android.widget.Toast
 
 class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
-    val tv_total_price = findViewById<TextView>(R.id.tv_total_price)
+    var total_price: Double = 0.00
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,9 +81,12 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         val priceString = matchResult?.value?.removePrefix("$") // Remove the dollar sign to parse it as a Double
 
         val price = priceString?.toDoubleOrNull() ?: 0.0
+        total_price +=price;
+        val tvTotalPrice: TextView = findViewById(R.id.tv_total_price)
+        tvTotalPrice.text = "Total Price: $%.2f".format(total_price)
+    }
+    fun updateTotalPrice(sizeSelection: Int, toppingSelections: Int, spicySelection: Int, quantitySelection: Int) {
 
-        // Set the extracted price to your TextView
-        tv_total_price.text = "Total Price: $%.2f".format(totalPrice)
     }
 
     fun setPizzaImageView(view:View){
