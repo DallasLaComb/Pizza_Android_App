@@ -6,7 +6,6 @@ import android.view.View
 import android.widget.*
 
 class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
-
     var totalPrice: Double = 0.00
     var sizeSelectionPrice: Double = 0.00
     var spicySelection: Double = 0.00
