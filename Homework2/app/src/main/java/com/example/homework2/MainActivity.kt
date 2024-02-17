@@ -78,7 +78,29 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         findViewById<TextView>(R.id.tv_total_price).text = "$%.2f".format(totalPriceCalculation)
 
     }
+    fun updateToppingsSelected(view: View) {
+        toppingsPrice = 0.0
 
+        toppingsPrice += if (findViewById<CheckBox>(R.id.cb_tomatoes).isChecked) 1.0 else 0.0
+        toppingsPrice += if (findViewById<CheckBox>(R.id.cb_mushrooms).isChecked) 2.3 else 0.0
+        toppingsPrice += if (findViewById<CheckBox>(R.id.cb_olives).isChecked) 1.7 else 0.0
+        toppingsPrice += if (findViewById<CheckBox>(R.id.cb_onions).isChecked) 1.25 else 0.0
+        toppingsPrice += if (findViewById<CheckBox>(R.id.cb_broccoli).isChecked) 1.8 else 0.0
+        toppingsPrice += if (findViewById<CheckBox>(R.id.cb_spinach).isChecked) 2.0 else 0.0
+
+        updateTotalPrices()
+
+    }
+    fun resetButton(view:View){
+        totalPrice = 0.00
+        sizeSelectionPrice = 9.99 //Medium Pizza
+        spicySelection= 0.00
+        toppingsPrice= 0.00
+        deliveryPrice= 0.00
+        quantitySelection = 1
+
+        updateTotalPrices()
+    }
     fun setPizzaImageView(view: View) {
         val imageIdOfSelectedPizza = when (view.id) {
             R.id.rb_pepperoni -> R.drawable.pepperoni
