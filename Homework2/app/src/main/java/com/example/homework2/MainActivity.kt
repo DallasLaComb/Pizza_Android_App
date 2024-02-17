@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     }
 
     fun updateTotalPrices(sizeSelection: Double, toppingsPrice: Double, spicySelection: Double, quantitySelection: Int) {
-        var subTotalPrice = ((quantitySelection)*(sizeSelection+toppingsPrice+spicySelection))
+        var subTotalPrice = ((quantitySelection)*(sizeSelection+toppingsPrice))+spicySelection
         findViewById<TextView>(R.id.tv_subtotal_value).text = "$%.2f".format(subTotalPrice)
 
         var totalPriceCalculation = (((subTotalPrice)*(taxRate))+deliveryPrice)
@@ -96,7 +96,20 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     fun spicySwitchClick(view: View) {
         val switchSpicy: Switch = findViewById(R.id.sw_extra_spicy)
-        switchSpicy.text = if (switchSpicy.isChecked) "Yes, $1.00" else "No, $0.00"
+
+            if (switchSpicy.isChecked){
+                switchSpicy.text = "Yes, $1.00"
+                spicySelection = 1.00
+                updateTotalPrices(sizeSelectionPrice, toppingsPrice, spicySelection, quantitySelection)
+
+            }
+            else{
+                switchSpicy.text = "No, $0.00"
+                spicySelection = 0.00
+                updateTotalPrices(sizeSelectionPrice, toppingsPrice, spicySelection, quantitySelection)
+
+            }
+
         findViewById<SeekBar>(R.id.sb_spiciness_level).visibility = if (switchSpicy.isChecked) View.VISIBLE else View.INVISIBLE
         findViewById<TextView>(R.id.tv_spiciness_level).visibility = if (switchSpicy.isChecked) View.VISIBLE else View.INVISIBLE
     }
