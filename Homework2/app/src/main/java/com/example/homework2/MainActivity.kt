@@ -39,16 +39,22 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         val incrementButton: Button = findViewById(R.id.bu_increment_quantity)
         val decrementButton: Button = findViewById(R.id.bu_decrement_quantity)
 
-        incrementButton.setOnClickListener { updateQuantity(1) }
-        decrementButton.setOnClickListener { updateQuantity(-1) }
+        incrementButton.setOnClickListener {
+            quantitySelection++
+            updateTotalPrices(sizeSelectionPrice, toppingsPrice, spicySelection, quantitySelection)
+            quantityTextView.text = quantitySelection.toString()
+        }
+
+        decrementButton.setOnClickListener {
+            if (quantitySelection > 1) {
+                quantitySelection--
+                updateTotalPrices(sizeSelectionPrice, toppingsPrice, spicySelection, quantitySelection)
+                quantityTextView.text = quantitySelection.toString()
+            }
+        }
     }
 
-    private fun updateQuantity(delta: Int) {
-        val quantityTextView: TextView = findViewById(R.id.tv_quantity_number)
-        var quantity = quantityTextView.text.toString().toInt() + delta
-        if (quantity < 1) quantity = 1
-        quantityTextView.text = quantity.toString()
-    }
+
 
     override fun onNothingSelected(parent: AdapterView<*>?) {}
 

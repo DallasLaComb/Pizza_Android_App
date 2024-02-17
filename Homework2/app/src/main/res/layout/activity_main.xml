@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:text="@string/pizza_order"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,59 +25,60 @@
         android:layout_marginStart="8dp"
         android:text="@string/choose_your_pizza_type"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_pizza_order" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
-        android:layout_width="167dp"
-        android:layout_height="86dp"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_choose_your_pizza_type">
 
         <RadioButton
             android:id="@+id/rb_pepperoni"
-            android:layout_width="141dp"
-            android:layout_height="23dp"
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
             android:onClick="setPizzaImageView"
             android:text="@string/pepperoni"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textSize="12sp" />
+            android:textSize="10sp" />
 
         <RadioButton
             android:id="@+id/rb_bbq_chicken"
             android:layout_width="match_parent"
-            android:layout_height="18dp"
+            android:layout_height="22dp"
             android:onClick="setPizzaImageView"
             android:text="@string/bbq_chicken"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textSize="12sp" />
+            android:textSize="10sp" />
 
         <RadioButton
             android:id="@+id/rb_margherita"
             android:layout_width="match_parent"
-            android:layout_height="24dp"
+            android:layout_height="22dp"
             android:onClick="setPizzaImageView"
             android:text="@string/margherita_premium"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textSize="12sp" />
+            android:textSize="10sp" />
 
         <RadioButton
             android:id="@+id/rb_hawaiian"
-            android:layout_width="204dp"
-            android:layout_height="21dp"
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
             android:minHeight="48dp"
             android:onClick="setPizzaImageView"
             android:text="@string/hawaiian_premium"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textSize="12sp" />
+            android:textSize="10sp" />
     </RadioGroup>
 
     <ImageView
         android:id="@+id/iv_default_pizza"
-        android:layout_width="160dp"
-        android:layout_height="175dp"
+        android:layout_width="145dp"
+        android:layout_height="107dp"
         android:layout_marginEnd="8dp"
         android:contentDescription="@string/default_pizza_image_view"
         app:layout_constraintEnd_toEndOf="parent"
@@ -87,10 +89,11 @@
     <TextView
         android:id="@+id/tv_choose_pizza_size"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="22dp"
         android:layout_marginStart="8dp"
         android:text="@string/choose_pizza_size"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
@@ -98,7 +101,7 @@
     <Spinner
         android:id="@+id/sp_choose_pizza_size"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="22dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="25dp"
         android:minHeight="48dp"
@@ -114,6 +117,7 @@
         android:layout_marginStart="8dp"
         android:text="@string/extra_toppings"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sp_choose_pizza_size" />
@@ -121,17 +125,19 @@
     <CheckBox
         android:id="@+id/checkBox"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="22dp"
         android:includeFontPadding="false"
         android:text="Tomatoes ($1)"
-        app:layout_constraintStart_toStartOf="@+id/tv_extra_toppings"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_extra_toppings" />
 
     <CheckBox
         android:id="@+id/checkBox2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="22dp"
         android:text="Mushrooms ($2.3)"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="@+id/checkBox"
         app:layout_constraintEnd_toStartOf="@+id/checkBox3"
         app:layout_constraintStart_toEndOf="@+id/checkBox" />
@@ -139,46 +145,52 @@
     <CheckBox
         android:id="@+id/checkBox3"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="22dp"
+        android:layout_marginEnd="8dp"
         android:text="Olives ($1.7)"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="@+id/checkBox2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/checkBox2" />
+        app:layout_constraintStart_toEndOf="@+id/checkBox2"
+        app:layout_constraintStart_toStartOf="@+id/checkBox6" />
 
     <CheckBox
         android:id="@+id/checkBox4"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="22dp"
         android:text="Onions ($1.25)"
+        android:textSize="10sp"
         app:layout_constraintStart_toStartOf="@+id/checkBox"
         app:layout_constraintTop_toBottomOf="@+id/checkBox" />
 
     <CheckBox
         android:id="@+id/checkBox5"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="22dp"
         android:text="Broccoloi ($1.8)"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="@+id/checkBox4"
-        app:layout_constraintEnd_toStartOf="@+id/checkBox6"
-        app:layout_constraintStart_toEndOf="@+id/checkBox4" />
+        app:layout_constraintStart_toStartOf="@+id/checkBox2" />
 
     <CheckBox
         android:id="@+id/checkBox6"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="22dp"
+        android:layout_marginEnd="8dp"
         android:text="Spinach ($2)"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="@+id/checkBox5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/checkBox5" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/tv_extra_spicy"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="22dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/extra_spicy"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/sw_extra_spicy"
         app:layout_constraintHorizontal_bias="0.0"
@@ -188,12 +200,13 @@
     <Switch
         android:id="@+id/sw_extra_spicy"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="22dp"
         android:layout_marginStart="8dp"
         android:minHeight="48dp"
         android:onClick="spicySwitchClick"
         android:text="No, $0.00"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="@+id/tv_extra_spicy"
         app:layout_constraintStart_toEndOf="@+id/tv_extra_spicy"
         app:layout_constraintTop_toTopOf="@+id/tv_extra_spicy" />
@@ -201,7 +214,7 @@
     <TextView
         android:id="@+id/tv_spiciness_level"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="22dp"
         android:text='Spiciness Level: 0'
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
@@ -211,7 +224,7 @@
     <SeekBar
         android:id="@+id/sb_spiciness_level"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="22dp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -222,19 +235,22 @@
         android:id="@+id/tv_quantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="Quantity:"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/checkBox4"
         app:layout_constraintTop_toBottomOf="@+id/sb_spiciness_level" />
 
     <Button
         android:id="@+id/bu_decrement_quantity"
-        android:layout_width="70dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#F44336"
         android:text="-"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/tv_quantity"
         app:layout_constraintStart_toEndOf="@+id/tv_quantity"
         app:layout_constraintTop_toTopOf="@+id/tv_quantity" />
@@ -251,7 +267,7 @@
 
     <Button
         android:id="@+id/bu_increment_quantity"
-        android:layout_width="70dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#4CAF50"
         android:text="+"
@@ -266,6 +282,7 @@
         android:layout_marginTop="16dp"
         android:text="Subtotal:"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tv_quantity"
         app:layout_constraintTop_toBottomOf="@+id/tv_quantity" />
@@ -274,14 +291,16 @@
         android:id="@+id/tv_subtotal_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="3dp"
         android:text="$0.00"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/tv_subtotal_label"
         app:layout_constraintStart_toEndOf="@+id/tv_subtotal_label"
-        app:layout_constraintTop_toTopOf="@+id/tv_subtotal_label" />
+        app:layout_constraintTop_toTopOf="@+id/tv_subtotal_label"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView12"
@@ -290,6 +309,7 @@
         android:layout_marginTop="8dp"
         android:text="Tax (6.35%):"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tv_subtotal_label"
         app:layout_constraintTop_toBottomOf="@+id/tv_subtotal_label" />
@@ -300,6 +320,7 @@
         android:layout_height="wrap_content"
         android:text="$0.00"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/textView12"
         app:layout_constraintStart_toStartOf="@+id/tv_subtotal_value"
@@ -312,6 +333,7 @@
         android:layout_marginTop="8dp"
         android:text="Deliver Fee:"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textView12"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
@@ -323,6 +345,7 @@
         android:onClick="deliverySwitchClick"
         android:text="No, $0.00"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/textView14"
         app:layout_constraintStart_toStartOf="@+id/textView13"
@@ -334,7 +357,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:text="Total Price:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textView14" />
@@ -344,6 +368,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="$0.00"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView16"
         app:layout_constraintStart_toStartOf="@+id/sw_delivery"
         app:layout_constraintTop_toTopOf="@+id/textView16" />
@@ -352,10 +377,12 @@
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="16dp"
         android:backgroundTint="#FF9800"
         android:text="Reset"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView16"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sw_delivery" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
