@@ -1,5 +1,6 @@
 package com.example.homework2
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -41,14 +42,14 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
         incrementButton.setOnClickListener {
             quantitySelection++
-            updateTotalPrices(sizeSelectionPrice, toppingsPrice, spicySelection, quantitySelection)
+            updateTotalPrices()
             quantityTextView.text = quantitySelection.toString()
         }
 
         decrementButton.setOnClickListener {
             if (quantitySelection > 1) {
                 quantitySelection--
-                updateTotalPrices(sizeSelectionPrice, toppingsPrice, spicySelection, quantitySelection)
+                updateTotalPrices()
                 quantityTextView.text = quantitySelection.toString()
             }
         }
@@ -66,11 +67,11 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         sizeSelectionPrice = priceString?.toDoubleOrNull() ?: 0.0
 
 //        Need to create an in value for toppings, spicy, and quantity to find the totalPrice...
-        updateTotalPrices(sizeSelectionPrice,toppingsPrice,spicySelection,quantitySelection)
+        updateTotalPrices()
     }
 
-    fun updateTotalPrices(sizeSelection: Double, toppingsPrice: Double, spicySelection: Double, quantitySelection: Int) {
-        var subTotalPrice = ((quantitySelection)*(sizeSelection+toppingsPrice))+spicySelection
+    fun updateTotalPrices() {
+        var subTotalPrice = ((quantitySelection)*(sizeSelectionPrice+toppingsPrice))+spicySelection
         findViewById<TextView>(R.id.tv_subtotal_value).text = "$%.2f".format(subTotalPrice)
 
         var totalPriceCalculation = (((subTotalPrice)*(taxRate))+deliveryPrice)
@@ -91,22 +92,35 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     fun deliverySwitchClick(view: View) {
         val switchDelivery: Switch = findViewById(R.id.sw_delivery)
-        switchDelivery.text = if (switchDelivery.isChecked) "Yes, $2.00" else "No, $0.00"
+
+            if (switchDelivery.isChecked){
+                deliveryPrice = 2.00
+                updateTotalPrices()
+
+                switchDelivery.text = "Yes, $2.00"
+            }
+            else{
+                deliveryPrice = 0.00
+                updateTotalPrices()
+
+                switchDelivery.text = "No, $0.00"
+            }
     }
 
+    @SuppressLint("SuspiciousIndentation")
     fun spicySwitchClick(view: View) {
         val switchSpicy: Switch = findViewById(R.id.sw_extra_spicy)
 
             if (switchSpicy.isChecked){
                 switchSpicy.text = "Yes, $1.00"
                 spicySelection = 1.00
-                updateTotalPrices(sizeSelectionPrice, toppingsPrice, spicySelection, quantitySelection)
+                updateTotalPrices()
 
             }
             else{
                 switchSpicy.text = "No, $0.00"
                 spicySelection = 0.00
-                updateTotalPrices(sizeSelectionPrice, toppingsPrice, spicySelection, quantitySelection)
+                updateTotalPrices()
 
             }
 

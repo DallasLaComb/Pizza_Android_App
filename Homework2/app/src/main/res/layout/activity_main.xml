@@ -206,7 +206,7 @@
         android:onClick="spicySwitchClick"
         android:text="No, $0.00"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textSize="10sp"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/tv_extra_spicy"
         app:layout_constraintStart_toEndOf="@+id/tv_extra_spicy"
         app:layout_constraintTop_toTopOf="@+id/tv_extra_spicy" />
@@ -355,13 +355,13 @@
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginTop="8dp"
         android:text="Total Price:"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView14" />
+        app:layout_constraintStart_toStartOf="@+id/textView14"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
     <TextView
         android:id="@+id/tv_total_price"
@@ -377,12 +377,14 @@
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="55dp"
         android:layout_marginEnd="16dp"
         android:backgroundTint="#FF9800"
         android:text="Reset"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView16"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/sw_delivery" />
+        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintStart_toEndOf="@+id/sw_delivery"
+        app:layout_constraintTop_toBottomOf="@+id/bu_increment_quantity" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
