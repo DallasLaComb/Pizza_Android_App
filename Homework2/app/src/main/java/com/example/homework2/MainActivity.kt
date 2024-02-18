@@ -71,13 +71,16 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     }
 
     fun updateTotalPrices() {
-        var subTotalPrice = ((quantitySelection)*(sizeSelectionPrice+toppingsPrice))+spicySelection
+        var subTotalPrice = ((quantitySelection) * (sizeSelectionPrice + toppingsPrice)) + spicySelection
         findViewById<TextView>(R.id.tv_subtotal_value).text = "$%.2f".format(subTotalPrice)
 
-        var totalPriceCalculation = (((subTotalPrice)*(taxRate))+deliveryPrice)
-        findViewById<TextView>(R.id.tv_total_price).text = "$%.2f".format(totalPriceCalculation)
+        var taxTotal = (subTotalPrice * taxRate) - subTotalPrice // Calculate the tax based on the subtotal
+        findViewById<TextView>(R.id.tv_tax_total).text = "$%.2f".format(taxTotal) // Display the tax total
 
+        var totalPriceCalculation = (subTotalPrice * taxRate) + deliveryPrice
+        findViewById<TextView>(R.id.tv_total_price).text = "$%.2f".format(totalPriceCalculation)
     }
+
     fun resetToppings() {
         findViewById<CheckBox>(R.id.cb_tomatoes).isChecked = false
         findViewById<CheckBox>(R.id.cb_mushrooms).isChecked = false
@@ -164,8 +167,12 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         // Clear radio button selection
         findViewById<RadioGroup>(R.id.rg_pizza_type).clearCheck()
 
+        // Reset the tax total display
+        findViewById<TextView>(R.id.tv_tax_total).text = "$0.00"
+
         updateTotalPrices()
     }
+
 
 
 

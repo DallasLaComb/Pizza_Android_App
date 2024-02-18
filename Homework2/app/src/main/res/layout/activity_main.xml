@@ -321,7 +321,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_subtotal_label" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/tv_tax_total"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="$0.00"
@@ -354,7 +354,7 @@
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/textView14"
-        app:layout_constraintStart_toStartOf="@+id/textView13"
+        app:layout_constraintStart_toStartOf="@+id/tv_tax_total"
         app:layout_constraintTop_toTopOf="@+id/textView14" />
 
     <TextView
