@@ -79,7 +79,7 @@
         android:id="@+id/iv_default_pizza"
         android:layout_width="145dp"
         android:layout_height="107dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="4dp"
         android:contentDescription="@string/default_pizza_image_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/rg_pizza_type"
@@ -393,5 +393,61 @@
         app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toEndOf="@+id/sw_delivery"
         app:layout_constraintTop_toBottomOf="@+id/bu_increment_quantity" />
+
+    <ImageView
+        android:id="@+id/iv_spinach"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_default_pizza"
+        app:layout_constraintStart_toEndOf="@+id/iv_mushrooms"
+        app:srcCompat="@drawable/spinach" />
+
+    <ImageView
+        android:id="@+id/iv_broccoli"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="@+id/iv_default_pizza"
+        app:layout_constraintTop_toBottomOf="@+id/iv_tomato"
+        app:srcCompat="@drawable/broccoli" />
+
+    <ImageView
+        android:id="@+id/iv_olives"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/iv_default_pizza"
+        app:layout_constraintTop_toTopOf="@+id/iv_default_pizza"
+        app:srcCompat="@drawable/olives" />
+
+    <ImageView
+        android:id="@+id/iv_tomato"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintEnd_toEndOf="@+id/iv_default_pizza"
+        app:layout_constraintTop_toTopOf="@+id/iv_default_pizza"
+        app:srcCompat="@drawable/tomato" />
+
+    <ImageView
+        android:id="@+id/iv_mushrooms"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="32dp"
+        app:layout_constraintStart_toStartOf="@+id/iv_default_pizza"
+        app:layout_constraintTop_toBottomOf="@+id/iv_olives"
+        app:srcCompat="@drawable/mushroom" />
+
+    <ImageView
+        android:id="@+id/iv_onion"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintEnd_toStartOf="@+id/iv_broccoli"
+        app:layout_constraintStart_toEndOf="@+id/iv_mushrooms"
+        app:layout_constraintTop_toTopOf="@+id/iv_mushrooms"
+        app:srcCompat="@drawable/onion" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
