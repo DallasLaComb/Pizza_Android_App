@@ -71,38 +71,66 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     }
 
     fun updateTotalPrices() {
-        var subTotalPrice = ((quantitySelection)*(sizeSelectionPrice+toppingsPrice))+spicySelection
+        var subTotalPrice = ((quantitySelection) * (sizeSelectionPrice + toppingsPrice)) + spicySelection
         findViewById<TextView>(R.id.tv_subtotal_value).text = "$%.2f".format(subTotalPrice)
 
-        var totalPriceCalculation = (((subTotalPrice)*(taxRate))+deliveryPrice)
+        var taxTotal = (subTotalPrice * taxRate) - subTotalPrice // Calculate the tax based on the subtotal
+        findViewById<TextView>(R.id.tv_tax_total).text = "$%.2f".format(taxTotal) // Display the tax total
+
+        var totalPriceCalculation = (subTotalPrice * taxRate) + deliveryPrice
         findViewById<TextView>(R.id.tv_total_price).text = "$%.2f".format(totalPriceCalculation)
-
     }
-    fun resetToppings() {
-        toppingsPrice = 0.0
 
+    fun resetToppings() {
         findViewById<CheckBox>(R.id.cb_tomatoes).isChecked = false
         findViewById<CheckBox>(R.id.cb_mushrooms).isChecked = false
         findViewById<CheckBox>(R.id.cb_olives).isChecked = false
         findViewById<CheckBox>(R.id.cb_onions).isChecked = false
         findViewById<CheckBox>(R.id.cb_broccoli).isChecked = false
         findViewById<CheckBox>(R.id.cb_spinach).isChecked = false
+
+        // Make topping images invisible
+        findViewById<ImageView>(R.id.iv_tomatoes).visibility = View.INVISIBLE
+        findViewById<ImageView>(R.id.iv_mushrooms).visibility = View.INVISIBLE
+        findViewById<ImageView>(R.id.iv_olives).visibility = View.INVISIBLE
+        findViewById<ImageView>(R.id.iv_onions).visibility = View.INVISIBLE
+        findViewById<ImageView>(R.id.iv_broccoli).visibility = View.INVISIBLE
+        findViewById<ImageView>(R.id.iv_spinach).visibility = View.INVISIBLE
     }
+
 
 // Make sure to call resetToppings() inside your resetButton function
 
     fun updateToppingsSelected(view: View) {
         toppingsPrice = 0.0
 
-        toppingsPrice += if (findViewById<CheckBox>(R.id.cb_tomatoes).isChecked) 1.0 else 0.0
-        toppingsPrice += if (findViewById<CheckBox>(R.id.cb_mushrooms).isChecked) 2.3 else 0.0
-        toppingsPrice += if (findViewById<CheckBox>(R.id.cb_olives).isChecked) 1.7 else 0.0
-        toppingsPrice += if (findViewById<CheckBox>(R.id.cb_onions).isChecked) 1.25 else 0.0
-        toppingsPrice += if (findViewById<CheckBox>(R.id.cb_broccoli).isChecked) 1.8 else 0.0
-        toppingsPrice += if (findViewById<CheckBox>(R.id.cb_spinach).isChecked) 2.0 else 0.0
-        updateTotalPrices()
+        val tomatoesChecked = findViewById<CheckBox>(R.id.cb_tomatoes).isChecked
+        toppingsPrice += if (tomatoesChecked) 1.0 else 0.0
+        findViewById<ImageView>(R.id.iv_tomatoes).visibility = if (tomatoesChecked) View.VISIBLE else View.INVISIBLE
 
+        val mushroomsChecked = findViewById<CheckBox>(R.id.cb_mushrooms).isChecked
+        toppingsPrice += if (mushroomsChecked) 2.3 else 0.0
+        findViewById<ImageView>(R.id.iv_mushrooms).visibility = if (mushroomsChecked) View.VISIBLE else View.INVISIBLE
+
+        val olivesChecked = findViewById<CheckBox>(R.id.cb_olives).isChecked
+        toppingsPrice += if (olivesChecked) 1.7 else 0.0
+        findViewById<ImageView>(R.id.iv_olives).visibility = if (olivesChecked) View.VISIBLE else View.INVISIBLE
+
+        val onionsChecked = findViewById<CheckBox>(R.id.cb_onions).isChecked
+        toppingsPrice += if (onionsChecked) 1.25 else 0.0
+        findViewById<ImageView>(R.id.iv_onions).visibility = if (onionsChecked) View.VISIBLE else View.INVISIBLE
+
+        val broccoliChecked = findViewById<CheckBox>(R.id.cb_broccoli).isChecked
+        toppingsPrice += if (broccoliChecked) 1.8 else 0.0
+        findViewById<ImageView>(R.id.iv_broccoli).visibility = if (broccoliChecked) View.VISIBLE else View.INVISIBLE
+
+        val spinachChecked = findViewById<CheckBox>(R.id.cb_spinach).isChecked
+        toppingsPrice += if (spinachChecked) 2.0 else 0.0
+        findViewById<ImageView>(R.id.iv_spinach).visibility = if (spinachChecked) View.VISIBLE else View.INVISIBLE
+
+        updateTotalPrices()
     }
+
     fun resetButton(view: View) {
         totalPrice = 0.00
         sizeSelectionPrice = 9.99 // Medium Pizza
@@ -139,8 +167,12 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         // Clear radio button selection
         findViewById<RadioGroup>(R.id.rg_pizza_type).clearCheck()
 
+        // Reset the tax total display
+        findViewById<TextView>(R.id.tv_tax_total).text = "$0.00"
+
         updateTotalPrices()
     }
+
 
 
 
