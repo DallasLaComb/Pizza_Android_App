@@ -78,6 +78,19 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         findViewById<TextView>(R.id.tv_total_price).text = "$%.2f".format(totalPriceCalculation)
 
     }
+    fun resetToppings() {
+        toppingsPrice = 0.0
+
+        findViewById<CheckBox>(R.id.cb_tomatoes).isChecked = false
+        findViewById<CheckBox>(R.id.cb_mushrooms).isChecked = false
+        findViewById<CheckBox>(R.id.cb_olives).isChecked = false
+        findViewById<CheckBox>(R.id.cb_onions).isChecked = false
+        findViewById<CheckBox>(R.id.cb_broccoli).isChecked = false
+        findViewById<CheckBox>(R.id.cb_spinach).isChecked = false
+    }
+
+// Make sure to call resetToppings() inside your resetButton function
+
     fun updateToppingsSelected(view: View) {
         toppingsPrice = 0.0
 
@@ -87,20 +100,52 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         toppingsPrice += if (findViewById<CheckBox>(R.id.cb_onions).isChecked) 1.25 else 0.0
         toppingsPrice += if (findViewById<CheckBox>(R.id.cb_broccoli).isChecked) 1.8 else 0.0
         toppingsPrice += if (findViewById<CheckBox>(R.id.cb_spinach).isChecked) 2.0 else 0.0
-
         updateTotalPrices()
 
     }
-    fun resetButton(view:View){
+    fun resetButton(view: View) {
         totalPrice = 0.00
-        sizeSelectionPrice = 9.99 //Medium Pizza
-        spicySelection= 0.00
-        toppingsPrice= 0.00
-        deliveryPrice= 0.00
+        sizeSelectionPrice = 9.99 // Medium Pizza
+        spicySelection = 0.00
+        toppingsPrice = 0.00
+        deliveryPrice = 0.00
         quantitySelection = 1
 
+        // Reset quantity
+        findViewById<TextView>(R.id.tv_quantity_number).text = quantitySelection.toString()
+
+        // Reset size selection to "Medium"
+        val pizzaSizeSpinner: Spinner = findViewById(R.id.sp_choose_pizza_size)
+        pizzaSizeSpinner.setSelection(0)
+
+        // Reset toppings
+        resetToppings()
+
+        // Reset "Extra Spicy" switch
+        val switchSpicy: Switch = findViewById(R.id.sw_extra_spicy)
+        switchSpicy.isChecked = false
+        switchSpicy.text = "No, $0.00"
+        findViewById<SeekBar>(R.id.sb_spiciness_level).visibility = View.INVISIBLE
+        findViewById<TextView>(R.id.tv_spiciness_level).visibility = View.INVISIBLE
+
+        // Reset "Delivery" switch
+        val switchDelivery: Switch = findViewById(R.id.sw_delivery)
+        switchDelivery.isChecked = false
+        switchDelivery.text = "No, $0.00"
+
+        // Reset pizza image to default
+        findViewById<ImageView>(R.id.iv_default_pizza).setImageResource(R.drawable.pizza_crust)
+
+        // Clear radio button selection
+        findViewById<RadioGroup>(R.id.rg_pizza_type).clearCheck()
+
         updateTotalPrices()
     }
+
+
+
+
+
     fun setPizzaImageView(view: View) {
         val imageIdOfSelectedPizza = when (view.id) {
             R.id.rb_pepperoni -> R.drawable.pepperoni
@@ -112,6 +157,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         findViewById<ImageView>(R.id.iv_default_pizza).setImageResource(imageIdOfSelectedPizza)
     }
 
+    @SuppressLint("SuspiciousIndentation")
     fun deliverySwitchClick(view: View) {
         val switchDelivery: Switch = findViewById(R.id.sw_delivery)
 
